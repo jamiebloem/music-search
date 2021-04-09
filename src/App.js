@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import axios from "axios";
 import './App.css';
+import {useState} from 'react';
 
 function App() {
+    const [query, setQuery] = useState('Coldplay');
+
+  function fetchData(event) {
+    console.log('hallo', query)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <input value={query} onChange={event => setQuery(event.target.value)} type="search"/>
+        <button onClick={fetchData}>Search</button>
+
+
+      </div>
   );
 }
 
